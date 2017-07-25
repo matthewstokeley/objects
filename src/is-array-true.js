@@ -4,12 +4,16 @@
 	 * filter an array of booleans
 	 * return false if there is a false value
 	 * otherwise, return true
-	 * @return {Boolean} [description]
+	 * 
+	 * @param  {Array}  array [description]
+	 * @throws {Exception}
+	 * @return {Boolean}       [description]
+	 * 
 	 */
 	var isArrayTrue = function(array) {
 
 		if (!Array.isArray(array)) {
-			return false;
+			throw new Exception('argument must be an array');
 		}
 
 		for (var i = 0; i < array.length; i++) {

@@ -1,13 +1,16 @@
 (function(__) {
 
 	/**
-	 * 
+	 * convert an array (which is a kind of an object) into a formal object
+	 * where the index is the key.
+	 * @param  {Array} array  [description]
+	 * @return {Object}       [description]
 	 */
 	var arrayToObject = function arrayToObject(array) {
 
 		if (!array ||
 			!Array.isArray(array)) {
-			console.log('map values requires an array');
+			throw new Exception('map values requires an array');
 		}
 
 		var obj = {};

@@ -17,7 +17,6 @@
 				if (typeof object[property] === 'object' &&
 					object[property] !== null) {
 					// check if dom or node
-					// 
 					if (is.dom(object[property]) || is.node(object[property])) {
 						newObject[property] = object[property];
 					} else {

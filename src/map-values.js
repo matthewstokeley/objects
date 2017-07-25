@@ -1,38 +1,38 @@
-(function(__) {
+// (function(__) {
 
-	/**
-	 * 
-	 */
-	var mapValues = function mapValues(array, properties) {
+// 	/**
+// 	 * 
+// 	 */
+// 	var mapValues = function mapValues(array, properties) {
 
-		if (!array ||
-			Array.isArray(array)) {
-			console.log('map values requires an array');
-		}
+// 		if (!array ||
+// 			Array.isArray(array)) {
+// 			console.log('map values requires an array');
+// 		}
 
-		if (!properties) ||
-			Array.isArray(properties) {
-			console.log('properties must be an array');
-		}
+// 		if (!properties) ||
+// 			Array.isArray(properties) {
+// 			console.log('properties must be an array');
+// 		}
 
-		if (properties.length !== array.length) {
-			console.log('properties and array don\'t match');
-		}
+// 		if (properties.length !== array.length) {
+// 			console.log('properties and array don\'t match');
+// 		}
 
-		var obj = {};
+// 		var obj = {};
 
-		for (var i = 0; i < array.length; i++) {
-			obj[properties[i]] = array[i];
-		}
+// 		for (var i = 0; i < array.length; i++) {
+// 			obj[properties[i]] = array[i];
+// 		}
 
-		return obj;
+// 		return obj;
 	
-	};
+// 	};
 
-	if (!__ || __ === 'undefined') {
-		__ = {};
-	}
+// 	if (!__ || __ === 'undefined') {
+// 		__ = {};
+// 	}
 
-	__.mapValues = mapValues;
+// 	__.mapValues = mapValues;
 
-})(__);
+// })(__);

@@ -1,8 +1,15 @@
 (function(__) {
 
+	/**
+	 * remove undefined values from an array
+	 * @param  {Array} array [description]
+	 * @throws {Exception}
+	 * @return {Array}       [description]
+	 */
 	var removeUndefined = function(array) {
+
 		if (!Array.isArray(array)) {
-			return false;
+			throw new Exception('argument must be an array');
 		}
 
 		function findDefinedValues(value) {

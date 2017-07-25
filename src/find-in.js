@@ -1,22 +1,20 @@
 (function(__) {
 
 	/**
-	 * [findIn description]
-	 * @return {[type]} [description]
+	 * facade for the indexOf method
+	 * @param  {[type]} needle   [description]
+	 * @param  {[type]} haystack [description]
+	 * @return {[type]}          [description]
 	 */
 	var findIn = function findIn(needle, haystack) {
 
 		if (!haystack || 
 			!Array.isArray(haystack)) {
-			throw new Error('haystack must be an array');
+			throw new Exception('haystack must be an array');
 		}
 
-	    for (var i = 0; i < haystack.length; i++) {
-	        if (needle === haystack[i]) {
-	            return true;
-	        }
-	    }
-	    return false;
+		return haystack.indexOf(needle) !== -1 ? true : false;
+
 	};
 
 

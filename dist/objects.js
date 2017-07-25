@@ -241,6 +241,21 @@ var is = (function() {
 
 })(__);;(function(__) {
 
+	var mapToObject = function(array, fn) {
+
+		return __.arrayToObject(array.map(fn));
+
+	};
+
+
+	if (!__ || __ === 'undefined') {
+		__ = {};
+	}
+
+	__.mapToObject = mapToObject;
+
+})(__);;(function(__) {
+
 
 	var mapMethods = function mapMethods(options) {
 
@@ -311,7 +326,9 @@ var is = (function() {
 })(__);;(function(__) {
 
 	/**
-	 * 
+	 * [arrayToObject description]
+	 * @param  {[type]} array [description]
+	 * @return {[type]}       [description]
 	 */
 	var arrayToObject = function arrayToObject(array) {
 
@@ -428,7 +445,6 @@ var is = (function() {
 				if (typeof object[property] === 'object' &&
 					object[property] !== null) {
 					// check if dom or node
-					// 
 					if (is.dom(object[property]) || is.node(object[property])) {
 						newObject[property] = object[property];
 					} else {
@@ -735,6 +751,95 @@ var is = (function() {
 
 })(__);;(function(__) {
 
+	/**
+	 * [findByDatasetValue description]
+	 * @return {[type]} [description]
+	 */
+	var findByDatasetValue = function findByDatasetValue(key, value, haystack) {
+
+		if (!haystack || 
+			!Array.isArray(haystack)) {
+			throw new Error('haystack must be an array');
+		}
+
+       for (var i = 0; i < haystack.length; i++) {
+            if (haystack[i].dataset[key] && haystack[i].dataset[key] === value.toString()) {
+                return haystack[i];
+            }
+        }
+        return false;
+	};
+
+
+	if (!__ || __ === 'undefined') {
+		__ = {};
+	}
+
+	__.findByDatasetValue = findByDatasetValue;
+
+})(__);
+
+;(function(__) {
+
+	/**
+	 * [getIndexByDatasetValue description]
+	 * @return {[type]} [description]
+	 */
+
+	 function getIndexByDatasetValue(key, value, haystack) {
+
+		if (!haystack || 
+			!Array.isArray(haystack)) {
+			throw new Error('haystack must be an array');
+		}
+
+       for (var i = 0; i < haystack.length; i++) {
+            if (haystack[i].dataset[key] && haystack[i].dataset[key] === value.toString()) {
+                return i;
+            }
+        }
+        return false;
+	}
+
+
+	if (!__ || __ === 'undefined') {
+		__ = {};
+	}
+
+	__.getIndexByDatasetValue = getIndexByDatasetValue;
+
+})(__);
+
+;(function(__) {
+
+	/**
+	 * [findIn description]
+	 * @return {[type]} [description]
+	 */
+	var getIndex = function findIn(needle, haystack) {
+
+		if (!haystack || 
+			!Array.isArray(haystack)) {
+			throw new Error('haystack must be an array');
+		}
+
+	    for (var i = 0; i < haystack.length; i++) {
+	        if (needle === haystack[i]) {
+	            return i;
+	        }
+	    }
+	    return false;
+	};
+
+
+	if (!__ || __ === 'undefined') {
+		__ = {};
+	}
+
+	__.getIndex = getIndex;
+
+})(__);;(function(__) {
+
 	var inherit = function(parent, child) {
 
 		child.prototype = Object.assign({}, parent.prototype, child.prototype);
@@ -819,6 +924,34 @@ var is = (function() {
 
 })(__);;(function(__) {
 
+	/**
+	 * arrayMerge is a facade for the Array.prototype.concat method,
+	 * but only accepts two arrays
+	 * @param  {Array} array  [description]
+	 * @param  {Array} array2 [description]
+	 * @return {Array}        [description]
+	 */
+	var mergeArrays = function arrayMerge(array, array2) {
+
+		if (!array ||
+			!Array.isArray(array) ||
+			!array2 ||
+			!Array.isArray(array2)) {
+			throw new Exception('parameters must be an array');
+		}
+
+		return array.concat(array2);
+	
+	};
+
+	if (!__ || __ === 'undefined') {
+		__ = {};
+	}
+
+	__.mergeArrays = mergeArrays;
+
+})(__);;(function(__) {
+
 	var removeBlankArrays = function(array) {
 	
 		if (!Array.isArray(array)) {
@@ -871,6 +1004,62 @@ var is = (function() {
 	}
 
 	__.removeUndefined = removeUndefined;
+
+})(__);;(function(__) {
+
+	var removeFromObject = function(object, key) {
+	
+		if (typeof object !== 'object') {
+			return false;
+		}
+
+		var newObj = {};
+
+		for (var property in object) {
+			if (property !== key) {
+				newObj[property] = object[property];
+			}
+		}
+
+		console.log(newObj);
+
+		return newObj;
+
+	};
+
+
+	if (!__ || __ === 'undefined') {
+		__ = {};
+	}
+
+	__.removeFromObject = removeFromObject;
+
+})(__);;(function(__) {
+
+	var removeFromArray = function(array, valueToRemove) {
+	
+		if (!Array.isArray(array)) {
+			return false;
+		}
+
+		var newArr = [];
+
+		for (var i = 0; i < array.length; i++) {
+			if (array[i] !== valueToRemove) {
+				newArr.push(array[i]);
+			}
+		}
+
+		return newArr;
+
+	};
+
+
+	if (!__ || __ === 'undefined') {
+		__ = {};
+	}
+
+	__.removeFromArray = removeFromArray;
 
 })(__);;(function(__) {
 
