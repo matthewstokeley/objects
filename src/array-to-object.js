@@ -1,8 +1,6 @@
 (function(__) {
 
 	/**
-	 * convert an array (which is a kind of an object) into a formal object
-	 * where the index is the key.
 	 * @param  {Array} array  [description]
 	 * @return {Object}       [description]
 	 */
