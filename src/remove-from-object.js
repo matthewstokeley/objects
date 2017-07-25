@@ -2,6 +2,7 @@
 
 	/**
 	 * remove a key value pair based on the key from an object
+	 * returns a new object
 	 * @param  {Object} object [description]
 	 * @param  {String} key    [description]
 	 * @throws {Exception}
